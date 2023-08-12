@@ -1,0 +1,54 @@
+create table users(
+    mobile_num int primary key,
+    user_id int unique,
+    account_id varchar(25) not null,
+    email varchar(50) unique,
+    date_of_birth date not null,
+    gender char(20) not null);
+
+create table ms1_accounts(
+    account_id varchar(25) unique,
+    username varchar(30) primary key,
+    account_type char(10) default 'public',
+    password varchar(30) not null,
+    created_on date,
+    account_status char(20),
+    meta_verified char(5) default 'no');
+
+create table ts1_devices(
+    logged_in_device_id varchar(30) primary key,
+    Device_name varchar(30),
+    location float,
+    date_of_login date,
+    username varchar(30) not null,
+    foreign key(username) references ms1_accounts(username));
+
+
+alter table ts1_devices add activity_status char(20) not null;
+alter table ts1_devices rename column logged_in_device_id to device_id;
+alter table users drop column gender;
+alter table users add gender char(20) not null;
+
+desc users;
+desc ms1_accounts;
+desc ts1_devices
+
+insert into users values(9688994123,1001,'i001','xyz@gmail.com',to_date('17-02-2001','dd-mm-yyyy'),'male');
+insert into users values(9688434123,1002,'i002','xyz1@yahoo.com',to_date('06-11-1984','dd-mm-yyyy'),'female');
+insert into users values(8988994123,1003,'i003','xyz2@gmail.com',to_date('19-04-2006','dd-mm-yyyy'),'male');
+insert into users values(6988994123,1004,'i004','xyz3@gmail.com',to_date('11-08-2000','dd-mm-yyyy'),'male');
+insert into users values(9677994123,1005,'i005','xyz4@gmail.com',to_date('04-12-2001','dd-mm-yyyy'),'female');
+
+select * from users;
+
+insert into ms1_accounts values('i001','jack1','private','jackrocks2',to_date('09-06-2001','dd-mm-yyyy'),'active','');
+insert into ms1_accounts values('i004','rajini','public','superstar',to_date('04-11-2008','dd-mm-yyyy'),'active','yes');
+insert into ms1_accounts values('i003','anonymous','','1234',to_date('19-04-2011','dd-mm-yyyy'),'de-active','no');
+insert into ms1_accounts values('i002','riya','private','100@4',to_date('12-10-2006','dd-mm-yyyy'),'deleted','');
+insert into ms1_accounts values('i005','rahul','private','rahul1',to_date('22-03-2004','dd-mm-yyyy'),'active','yes');
+
+select * from ms1_accounts;
+
+select username from ms1_accounts where meta_verified='yes';
+select * from users,ms1_accounts where users.account_id=ms1_accounts.account_id;
+delete from ms1_accounts where account_id='i001';
