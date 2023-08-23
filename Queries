@@ -4,7 +4,7 @@ create table users(
     account_id varchar(25) not null,
     email varchar(50) unique,
     date_of_birth date not null,
-    gender char(20) not null);
+    gender char(20) check (gender in ('male','female','rather not say')));
 
 create table ms1_accounts(
     account_id varchar(25) unique,
