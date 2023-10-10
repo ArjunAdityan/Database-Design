@@ -1,18 +1,16 @@
 create table users(
-    mobile_num int primary key,
-    user_id int unique,
-    account_id varchar(25) not null,
-    email varchar(50) unique,
+    email varchar(50) primary key,
+    username varchar(50) unique,
+    password varchar(30) not null,
+    mobile int,
     date_of_birth date not null,
-    gender char(20) check (gender in ('male','female','rather not say')));
+    gender char(20) not null);
 
 create table ms1_accounts(
-    account_id varchar(25) unique,
     username varchar(30) primary key,
     account_type char(10) default 'public',
-    password varchar(30) not null,
     created_on timestamp,
-    account_status char(20),
+    password varchar(30),
     meta_verified char(5) default 'no');
 
 create table ts1_devices(
@@ -23,33 +21,71 @@ create table ts1_devices(
     username varchar(30) not null,
     foreign key(username) references ms1_accounts(username));
 
+create table ms2_account_info(
+    name char(40),
+    bio varchar(100),
+    following int,
+    followers int,
+    posts int,
+    account_status char(20) check (account_status in ('active','deactive','deleted')),
+    created_on date,
+    tagged_post_id varchar(100),
+    username varchar(50),
+    foreign key(username) references ms1_accounts(username));
 
 alter table ts1_devices add activity_status char(20) not null;
 alter table ts1_devices rename column logged_in_device_id to device_id;
 alter table users drop column gender;
-alter table users add gender char(20) not null;
+alter table users add gender char(20) check (gender in ('male','female','rather not say'));
+
+
+
+insert into users values('xyz@gmail.com','jack1','jackrocks2',9688994123,to_date('17-02-2001','dd-mm-yyyy'),'male');
+insert into users values('xyz1@yahoo.com','rajini','superstar',9688434123,to_date('06-11-1984','dd-mm-yyyy'),'female');
+insert into users values('xyz2@gmail.com','riya4u','1234',8988994123,to_date('19-04-2006','dd-mm-yyyy'),'male');
+insert into users values('xyz3@gmail.com','rithesh.jr','100@4',6988994123,to_date('11-08-2000','dd-mm-yyyy'),'male');
+insert into users values('xyz4@gmail.com','kiraninsta','kiran777',9677994123,to_date('04-12-2001','dd-mm-yyyy'),'rather not say');
+
+
+
+insert into ms1_accounts values('jack1','private',to_timestamp('09-06-2001 10:30:00','dd-mm-yyyy hh24:mi:ss'),'dsdkffh','');
+insert into ms1_accounts values('rajini','public',to_timestamp('04-11-2008 20:25:16','dd-mm-yyyy hh24:mi:ss'),'wqewtu','yes');
+insert into ms1_accounts values('riya4u','',to_timestamp('19-04-2011 11:16:45','dd-mm-yyyy hh24:mi:ss'),'7213765','no');
+insert into ms1_accounts values('rithesh.jr','private',to_timestamp('12-10-2006 18:06:55','dd-mm-yyyy hh24:mi:ss'),'hahsafd65633','');
+insert into ms1_accounts values('kiraninsta','private',to_timestamp('22-03-2004 13:30:05','dd-mm-yyyy hh24:mi:ss'),'727123rqgwf','yes');
+
+insert into ms2_account_info values('jackie','cool guy, music lover',168,238,4,'active',to_date('11-01-2003','dd-mm-yyyy'),'p006xz','jack1');
+
+insert into ms2_account_info values('rajnikanth','Actor in Indian Film Industry',12,4576453765,60,'active',to_date('12-06-2010','dd-mm-yyyy'),'','rajini');
+
+insert into ms2_account_info values('riya raghav','filmaholic, nature lover',358,461,3,'deactive',to_date('11-04-2009','dd-mm-yyyy'),'x08971,g90867','riya4u');
+
+insert into ms2_account_info values('rithesh','bikes, friends',896,1000,23,'active',to_date('23-10-2008','dd-mm-yyyy'),'k90664,j84321,s23541','rithesh.jr');
+
+insert into ms2_account_info values('Kiran raj','tn 36, fam',123,86,0,'deleted',to_date('04-08-2011','dd-mm-yyyy'),'','kiraninsta');
 
 desc users;
 desc ms1_accounts;
-desc ts1_devices
-
-insert into users values(9688994123,1001,'i001','xyz@gmail.com',to_date('17-02-2001','dd-mm-yyyy'),'male');
-insert into users values(9688434123,1002,'i002','xyz1@yahoo.com',to_date('06-11-1984','dd-mm-yyyy'),'female');
-insert into users values(8988994123,1003,'i003','xyz2@gmail.com',to_date('19-04-2006','dd-mm-yyyy'),'male');
-insert into users values(6988994123,1004,'i004','xyz3@gmail.com',to_date('11-08-2000','dd-mm-yyyy'),'male');
-insert into users values(9677994123,1005,'i005','xyz4@gmail.com',to_date('04-12-2001','dd-mm-yyyy'),'female');
+desc ts1_devices;
 
 select * from users;
-
-insert into ms1_accounts values('i001','jack1','private','jackrocks2',to_timestamp('09-06-2001 10:30:00','dd-mm-yyyy hh24:mi:ss'),'active','');
-insert into ms1_accounts values('i004','rajini','public','superstar',to_timestamp('04-11-2008 20:25:16','dd-mm-yyyy hh24:mi:ss'),'active','yes');
-insert into ms1_accounts values('i003','anonymous','','1234',to_timestamp('19-04-2011 11:16:45','dd-mm-yyyy hh24:mi:ss'),'de-active','no');
-insert into ms1_accounts values('i002','riya','private','100@4',to_timestamp('12-10-2006 18:06:55','dd-mm-yyyy hh24:mi:ss'),'deleted','');
-insert into ms1_accounts values('i005','rahul','private','rahul1',to_timestamp('22-03-2004 13:30:05','dd-mm-yyyy hh24:mi:ss'),'active','yes');
-
 select * from ms1_accounts;
 
 select username from ms1_accounts where meta_verified='yes';
-select * from users,ms1_accounts where users.account_id=ms1_accounts.account_id;
-delete from ms1_accounts where account_id='i001';
-update users set user_id = 1004 where email='xyz4@gmail.com' and gender='male';
+
+select * from users,ms1_accounts where users.username=ms1_accounts.username;
+
+delete from ms1_accounts where username='rithesh.jr';
+
+update users set password='kiran077' where email='xyz4@gmail.com' and gender='rather not say';
+
+select * from ms1_accounts where username like 'r%';
+
+select sum(posts) from ms2_account_info;
+
+select min(followers) from ms2_account_info; 
+
+select * from ms2_account_info left join ms1_accounts on ms2_account_info.username = ms1_accounts.username;
+
+select ms2_account_info.posts,ms2_account_info.followers,ms2_account_info.following 
+    from ms2_account_info cross join ms1_accounts;
