@@ -1,0 +1,23 @@
+.style{
+    background-color: hotpink;
+    height:200px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 15px 10px 15px 10px;
+    top: 30%;
+    left: 38%;
+    position: absolute;
+    text-align: center;
+}
+body{
+    background-image: url("1230948.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+p{
+    font-style: italic;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+

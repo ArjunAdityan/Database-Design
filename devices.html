@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devices</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+          <th>Device id</th>
+          <th> Device name </th>
+          <th> location </th>
+          <th> login date </th>
+          <th> activity status </th>
+        </tr>
+        <tr>
+            <td>47548376</td>
+            <td>Oppo A1K</td>
+            <td class="editable" onclick="makeEditable(this)">Coimbatore</td>
+            <td>19.11.2019</td>
+            <td class="editable" onclick="makeEditable(this)">active</td>
+        </tr>
+        <tr>
+          <td>127836</td>
+          <td>Realme 7</td>
+          <td class="editable" onclick="makeEditable(this)">Chennai</td>
+          <td>12.04.2013</td>
+          <td class="editable" onclick="makeEditable(this)">logged out</td>
+        </tr>
+    </table>
+        <script>
+          function makeEditable(cell) {
+              cell.contentEditable = true;
+              cell.focus();
+          }
+        </script>
+</body>
+</html>

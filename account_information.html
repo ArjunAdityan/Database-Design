@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>account_info</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label>Name: </label>
+            <input type="text">
+        </div>
+        <p></p>
+        <div>
+            <label> Bio :</label>
+            <input type="text">
+        </div>
+        <P></P>
+        <table border="1">
+            <tr>
+              <th> Followers </th>
+              <th> Following </th>
+              <th> Posts </th>
+              <th> Tagged posts id </th>
+            </tr>
+            <tr>
+                <td class="editable" onclick="makeEditable(this)"> 0 </td>
+                <td class="editable" onclick="makeEditable(this)"> 0 </td>
+                <td class="editable" onclick="makeEditable(this)"> 0 </td>
+                <td class="editable" onclick="makeEditable(this)">  </td>
+            </tr>
+        </table>
+            <script>
+              function makeEditable(cell) {
+                  cell.contentEditable = true;
+                  cell.focus();
+              }
+            </script>
+            <p></p>
+            <label> Account status : </label>
+            <select>
+                <option>--Select--</option>
+                <option>Active</option>
+                <option>De-activate</option>
+                <option>Delete</option>
+            </select>
+        </div>
+        <p></p>
+        <div>
+            <a href="http://127.0.0.1:3000/tagged_posts.html">
+                Click here to see tagged posts.
+            </a>
+        </div>
+        <p></p>
+        <div>
+            <a href="http://127.0.0.1:3000/account_settings.html">
+                Settings
+            </a>
+        </div>
+        <a href="http://127.0.0.1:3000/devices.html">
+            <p> Click here to see the logged in devices </p>
+        </a>
+        <a href="http://127.0.0.1:3000/account_activity.html">
+            <p> Click here to see account activity </p>
+        </a>
+    </form>
+</body>
+</html>

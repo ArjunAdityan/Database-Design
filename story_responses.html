@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>story_response</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th> Story id </th>
+      <th> Likes </th>
+      <th> Shares </th>
+      <th> Saves </th>
+      <th> Replied username </th>
+      <th> Reply </th>
+    </tr>
+    <tr>
+        <td>S9008</td>
+        <td class="editable" onclick="makeEditable(this)">126</td>
+        <td class="editable" onclick="makeEditable(this)">10</td>
+        <td class="editable" onclick="makeEditable(this)">4</td>
+        <td class="editable" onclick="makeEditable(this)">jack_rocks</td>
+        <td class="editable" onclick="makeEditable(this)"> cool! </td>
+    </tr>
+    <tr>
+      <td>S39651</td>
+      <td class="editable" onclick="makeEditable(this)">280</td>
+      <td class="editable" onclick="makeEditable(this)">4</td>
+      <td class="editable" onclick="makeEditable(this)">6</td>
+      <td class="editable" onclick="makeEditable(this)">havey12</td>
+      <td class="editable" onclick="makeEditable(this)"> love it:) </td>
+    </tr>
+  </table>
+  <script>
+    function makeEditable(cell) {
+        cell.contentEditable = true;
+        cell.focus();
+    }
+  </script>
+</body>
+</html>

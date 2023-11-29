@@ -1,0 +1,20 @@
+.style{
+    height:30S0px;
+    width: 500px;
+    border-radius: 10px;
+    top: 30%;
+    left: 38%;
+    position: absolute;
+    font-size:x-large;
+    
+}
+body{
+    background-image: url("wallpaperflare.com_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1{
+    text-align: center;
+}

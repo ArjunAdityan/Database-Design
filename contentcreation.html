@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Creation</title>
+    <link rel="stylesheet" href="contentcreation.css">
+</head>
+<body>
+    <h1>Share your content with peers ;]</h1>
+    <form action="http://127.0.0.1:3000/content_responses.html" method="post" enctype="multipart/form-data"> 
+    <div class="style">
+    <h2>Create your content here</h2>
+    <label>Content id:</label>
+    <input type="text">
+    <p></p>
+    <div>
+    <label for="">Content Type :</label>
+    <select>
+        <option>--Select--</option>
+        <option>Post</option>
+        <option>Reel</option>
+    </select>
+    </div>
+    <p></p>     
+    <label for="">Upload the image or video here :</label>
+    <input type="file" name="image" accept="image/*">
+    <p></p><label for="">Enter the description :</label>
+    <input type="text">
+    <p></p><div><label for="">Enter Hashtags :</label>
+    <input type="text"></div>
+    <p></p>
+    <label for="">Upload the music file :</label>
+    <input type="file" name="audio" accept="audio/mpeg">
+    <p></p>
+    <div>
+        <label> Tagged accounts :</label>
+        <input type="type">
+    </div>
+    <p></p>
+    <p></p><div><button type="submit">Create</button></div>
+    </div>
+    </form>
+</body>
+</html>

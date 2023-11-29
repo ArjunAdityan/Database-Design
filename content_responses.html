@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>content</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th> Content id </th>
+      <th> Likes </th>
+      <th> Shares </th>
+      <th> Saves </th>
+      <th> Comented username </th>
+      <th> Comment </th>
+    </tr>
+    <tr>
+        <td>C9008</td>
+        <td class="editable" onclick="makeEditable(this)">126</td>
+        <td class="editable" onclick="makeEditable(this)">10</td>
+        <td class="editable" onclick="makeEditable(this)">4</td>
+        <td class="editable" onclick="makeEditable(this)">jack_rocks</td>
+        <td class="editable" onclick="makeEditable(this)"> cool! </td>
+    </tr>
+    <tr>
+      <td>X39651</td>
+      <td class="editable" onclick="makeEditable(this)">280</td>
+      <td class="editable" onclick="makeEditable(this)">4</td>
+      <td class="editable" onclick="makeEditable(this)">6</td>
+      <td class="editable" onclick="makeEditable(this)">havey12</td>
+      <td class="editable" onclick="makeEditable(this)"> love it:) </td>
+    </tr>
+  </table>
+  <script>
+    function makeEditable(cell) {
+        cell.contentEditable = true;
+        cell.focus();
+    }
+  </script>
+</body>
+</html>

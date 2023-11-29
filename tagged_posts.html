@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tagged_posts</title>
+</head>
+<body>
+    <table border="1">
+    <tr>
+        <th> Tagged post id </th>
+        <th> Posted username </th>
+        <th> Other tagged accounts </th>
+        <th> posted date </th>
+        <th> likes </th>
+        <th> comments </th>
+    </tr>
+    <tr>
+        <td> BZ6498 </td>
+        <td>ram_govind</td>
+        <td>jack_rocks, priya_mohan</td>
+        <td>11.06.2012</td>
+        <td class="editable" onclick="makeEditable(this)">398</td>
+        <td class="editable" onclick="makeEditable(this)">40</td>
+    </tr>
+    <tr>
+        <td>XJ39651</td>
+        <td>thiruaml1</td>
+        <td>karthi7</td>
+        <td>20.10.2016</td>
+        <td class="editable" onclick="makeEditable(this)">30</td>
+        <td class="editable" onclick="makeEditable(this)"> 1 </td>
+    </tr>
+    </table>
+    <script>
+        function makeEditable(cell) {
+            cell.contentEditable = true;
+            cell.focus();
+        }
+    </script>
+</body>
+</html>
